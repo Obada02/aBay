@@ -27,14 +27,16 @@ namespace aBay
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT Password FROM Users WHERE ID =" + userID.Text + ";";
-            string entredPassword = password.Text;
+            string enteredPassword = password.Text;
+            int enteredUserID = Int32.Parse(userID.Text);
             string userPassword = "123";
             bool seller = true, buyer = true, delivery = true;
-            if (entredPassword == userPassword){
+            string sql = "SELECT Password FROM Users WHERE ID =" + enteredUserID + ";";
+            if (enteredPassword == userPassword){
                 if (seller)
                 {
-
+                    seller seller1 = new seller(enteredUserID);
+                    seller1.Show();
                 }else if (buyer)
                 {
 
