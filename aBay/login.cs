@@ -27,7 +27,25 @@ namespace aBay
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM Login WHERE ID =" + userID.Text + ";";
+            string sql = "SELECT Password FROM Users WHERE ID =" + userID.Text + ";";
+            string entredPassword = password.Text;
+            string userPassword = "123";
+            bool seller = true, buyer = true, delivery = true;
+            if (entredPassword == userPassword){
+                if (seller)
+                {
+
+                }else if (buyer)
+                {
+
+                }else
+                {
+
+                }
+            }else
+            {
+                MessageBox.Show("Wrong ID or Password!");
+            }
             //SQLiteCommand command = new SQLiteCommand(sql, conn);
             //SQLiteDataReader reader = command.ExecuteReader();
         }
