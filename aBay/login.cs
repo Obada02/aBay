@@ -36,6 +36,7 @@ namespace aBay
                 if (seller)
                 {
                     seller seller1 = new seller(enteredUserID);
+                    this.Hide();
                     seller1.Show();
                 }else if (buyer)
                 {
