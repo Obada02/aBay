@@ -12,8 +12,10 @@ namespace aBay
 {
     public partial class seller : Form
     {
+        public int id;
         public seller(int ID)
         {
+            id = ID;
             InitializeComponent();
         }
 
@@ -28,6 +30,7 @@ namespace aBay
 
         private void buyBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+            itemBindingSource.Filter = $"item IN (SELECT * FROM item WHERE storeID = (select userID from store where storeID = {id}))";
             this.Validate();
             this.buyBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dbProjectDataSet1);

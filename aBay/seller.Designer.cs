@@ -224,7 +224,7 @@
             this.itemDataGridView.DataSource = this.itemBindingSource;
             this.itemDataGridView.Location = new System.Drawing.Point(0, 28);
             this.itemDataGridView.Name = "itemDataGridView";
-            this.itemDataGridView.Size = new System.Drawing.Size(642, 169);
+            this.itemDataGridView.Size = new System.Drawing.Size(686, 176);
             this.itemDataGridView.TabIndex = 2;
             this.itemDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemDataGridView_CellContentClick);
             // 
