@@ -103,5 +103,10 @@ namespace aBay.screens
                 txtbx1Search.Text = "please enter anything here";
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
