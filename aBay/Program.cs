@@ -17,7 +17,7 @@ namespace aBay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new all_Items());
+            Application.Run(new login());
         }
     }
 }
