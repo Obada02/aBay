@@ -47,6 +47,8 @@ namespace aBay
             bool seller =  (sqlDataReader["seller"].ToString() == "1"),
                 buyer = (sqlDataReader["buyer"].ToString() == "1"),
                 delivery = (sqlDataReader["delivery"].ToString() == "1");
+            conn.Close();
+
             if (enteredPassword == userPassword){
                 if (seller)
                 {
@@ -68,7 +70,6 @@ namespace aBay
             }
             //SQLiteCommand command = new SQLiteCommand(sql, conn);
             //SQLiteDataReader reader = command.ExecuteReader();
-            conn.Close();
         }
 
         private void login_Load(object sender, EventArgs e)
