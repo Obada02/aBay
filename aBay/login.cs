@@ -57,12 +57,14 @@ namespace aBay
                     seller1.Show();
                 }else if (buyer)
                 {
-                    all_Items all_Items1 = new all_Items();
+                    all_Items all_Items1 = new all_Items(enteredUserID);
                     this.Hide();
                     all_Items1.Show();
                 }else
                 {
-
+                    delivery delivery1= new delivery(enteredUserID);
+                    this.Hide();
+                    delivery1.Show();  
                 }
             }else
             {

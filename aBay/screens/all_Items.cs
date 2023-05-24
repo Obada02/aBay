@@ -18,9 +18,12 @@ namespace aBay.screens
         int itemID;
         string name;
         float price;
-        public all_Items()
+        int userID;
+        public all_Items(int userID)
         {
             InitializeComponent();
+            this.userID = userID;
+            RefreshData();
         }
 
         private void itemBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -74,7 +77,7 @@ namespace aBay.screens
         private void RefreshData()
         {
             conn.Open();
-            string Myquery = "select purchaseID,cost,purchaseDate,itemID,userID,DeliveryID from buy";
+            string Myquery = "select purchaseID,cost,purchaseDate,itemID,userID,DeliveryID from buy where userID="+userID+"";
             SqlDataAdapter da = new SqlDataAdapter(Myquery, conn);
             SqlCommandBuilder builder = new SqlCommandBuilder(da);
             var ds = new DataSet();
@@ -105,6 +108,11 @@ namespace aBay.screens
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
