@@ -1,4 +1,4 @@
-# Shopping Website System
+# Shopping System
 
 This is a shopping website project that aims to provide a platform for users to buy and sell items. The website consists of several components, including users, items, delivery, and stores. Each component has specific attributes and relationships, as described below.
 

@@ -12,13 +12,16 @@ namespace aBay
 {
     public partial class delivery : Form
     {
-        public delivery()
+        int id;
+        public delivery(int id)
         {
             InitializeComponent();
+            this.id = id;
         }
 
         private void deliveryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+            buyBindingSource1.Filter = $"item IN (SELECT * FROM item WHERE storeID = (select userID from store where storeID = {id}))";
             this.Validate();
             this.deliveryBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dbProjectDataSet);
