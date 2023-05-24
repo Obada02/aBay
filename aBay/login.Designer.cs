@@ -34,6 +34,7 @@
             this.password = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
+            this.signUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -71,7 +72,7 @@
             // LoginButton
             // 
             this.LoginButton.CausesValidation = false;
-            this.LoginButton.Location = new System.Drawing.Point(28, 176);
+            this.LoginButton.Location = new System.Drawing.Point(28, 164);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(226, 23);
             this.LoginButton.TabIndex = 4;
@@ -82,7 +83,7 @@
             // exit
             // 
             this.exit.CausesValidation = false;
-            this.exit.Location = new System.Drawing.Point(28, 214);
+            this.exit.Location = new System.Drawing.Point(28, 226);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(226, 23);
             this.exit.TabIndex = 5;
@@ -90,9 +91,21 @@
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
+            // signUp
+            // 
+            this.signUp.CausesValidation = false;
+            this.signUp.Location = new System.Drawing.Point(28, 193);
+            this.signUp.Name = "signUp";
+            this.signUp.Size = new System.Drawing.Size(226, 23);
+            this.signUp.TabIndex = 6;
+            this.signUp.Text = "Create an Account";
+            this.signUp.UseVisualStyleBackColor = true;
+            this.signUp.Click += new System.EventHandler(this.signUp_Click);
+            // 
             // login
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.signUp);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.password);
@@ -119,5 +132,6 @@
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button signUp;
     }
 }

@@ -111,7 +111,7 @@
             this.buyBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.buyBindingNavigator.Name = "buyBindingNavigator";
             this.buyBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.buyBindingNavigator.Size = new System.Drawing.Size(891, 25);
+            this.buyBindingNavigator.Size = new System.Drawing.Size(864, 25);
             this.buyBindingNavigator.TabIndex = 0;
             this.buyBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 522);
+            this.ClientSize = new System.Drawing.Size(864, 522);
             this.Controls.Add(this.itemDataGridView);
             this.Controls.Add(this.buyBindingNavigator);
             this.Name = "seller";

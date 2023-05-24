@@ -77,5 +77,12 @@ namespace aBay
             conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbProject.mdf;Integrated Security=True;Connect Timeout=30");
 
         }
+
+        private void signUp_Click(object sender, EventArgs e)
+        {
+            signUp sign = new signUp();
+            this.Hide();
+            sign.Show();
+        }
     }
 }
