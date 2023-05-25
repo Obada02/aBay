@@ -73,6 +73,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbProjectDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dbProjectDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbProjectDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="screens\all_Items.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +104,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="screens\StoreData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screens\StoreData.Designer.cs">
+      <DependentUpon>StoreData.cs</DependentUpon>
+    </Compile>
     <Compile Include="seller.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +143,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="screens\StoreData.resx">
+      <DependentUpon>StoreData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="seller.resx">
       <DependentUpon>seller.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +173,17 @@
     </None>
     <None Include="dbProjectDataSet1.xss">
       <DependentUpon>dbProjectDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="dbProjectDataSet2.xsc">
+      <DependentUpon>dbProjectDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="dbProjectDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbProjectDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbProjectDataSet2.xss">
+      <DependentUpon>dbProjectDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

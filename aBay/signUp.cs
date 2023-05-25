@@ -77,14 +77,28 @@ namespace aBay
 
         private void create_Click(object sender, EventArgs e)
         {
-            string sql = "insert into user (FName , LName , E-mail , Password , Location , Buyer , Seller , Delivery , CarType)" +
-                "values ( "+ Fname.Text + " , " + Lname.Text +" , " +Email.Text
-                + " , " + password.Text + " , " +Location.Text + " , " + buyer 
-                + " , " + seller + " , "+ carType.Text + " )";
+            conn.Open();
+            string sql = "INSERT INTO [user] (FName, LName, Email, Password, Location, buyer, seller, delivery, CarType)" +
+                " VALUES (@FName, @LName, @Email, @Password, @Location, @Buyer, @Seller, @Delivery, @CarType)";
 
-            SqlCommand command = new SqlCommand(sql , conn);
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("@FName", Fname.Text);
+            command.Parameters.AddWithValue("@LName", Lname.Text);
+            command.Parameters.AddWithValue("@Email", Email.Text);
+            command.Parameters.AddWithValue("@Password", password.Text);
+            command.Parameters.AddWithValue("@Location", Location.Text);
+            command.Parameters.AddWithValue("@Buyer", buyer);
+            command.Parameters.AddWithValue("@Seller", seller);
+            command.Parameters.AddWithValue("@Delivery", delivery);
+            command.Parameters.AddWithValue("@CarType", carType.Text);
+
             command.ExecuteNonQuery();
-            MessageBox.Show(" Added succesfully !");
+            MessageBox.Show("Added successfully!");
+            conn.Close();
+
+            
+            this.Hide();
+            
         }
     }
 }
