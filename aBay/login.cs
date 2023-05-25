@@ -29,110 +29,113 @@ namespace aBay
             Application.Exit();
         }
 
-        //private void LoginButton_Click(object sender, EventArgs e)
-        //{
-        //    conn.Open();
-        //    int enteredUserID = int.Parse(userID.Text);
-        //    string sql = "select * from [user] where userID = " + userID.Text ;
-        //    SqlCommand cmd = new SqlCommand(sql, conn);
-        //    SqlDataReader sqlDataReader = cmd.ExecuteReader();
-
-
-        //    //while (sqlDataReader.Read())
-        //    //    MessageBox.Show(sqlDataReader.ToString());
-        //    sqlDataReader.Read();
-
-        //    string enteredPassword = password.Text;
-        //    string userPassword = sqlDataReader["password"].ToString();
-        //    bool seller =  (sqlDataReader["seller"].ToString() == "1"),
-        //        buyer = (sqlDataReader["buyer"].ToString() == "1"),
-        //        delivery = (sqlDataReader["delivery"].ToString() == "1");
-        //    conn.Close();
-
-        //    if (enteredPassword == userPassword){
-        //        if (seller)
-        //        {
-        //            seller seller1 = new seller(enteredUserID);
-        //            this.Hide();
-        //            seller1.Show();
-        //        }
-        //        else if (buyer)
-        //        {
-        //            all_Items all_Items1 = new all_Items(enteredUserID);
-        //            this.Hide();
-        //            all_Items1.Show();
-        //        }
-        //        else if (delivery)
-        //        {
-        //            delivery delivery1 = new delivery(enteredUserID);
-        //            this.Hide();
-        //            delivery1.Show();
-        //        }
-        //        else { 
-        //            MessageBox.Show("Wrong ID or Password!");
-        //        }
-
-
-        //    }else
-        //    {
-        //        MessageBox.Show("Wrong ID or Password!");
-        //    }
-        //    //SQLiteCommand command = new SQLiteCommand(sql, conn);
-        //    //SQLiteDataReader reader = command.ExecuteReader();
-        //}
         private void LoginButton_Click(object sender, EventArgs e)
         {
             conn.Open();
             int enteredUserID = int.Parse(userID.Text);
-            string sql = "SELECT * FROM [user] WHERE userID = " + enteredUserID;
+            string sql = "select * from [user] where userID = " + userID.Text;
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader sqlDataReader = cmd.ExecuteReader();
 
-            if (sqlDataReader.Read())
-            {
-                string enteredPassword = password.Text;
-                string userPassword = sqlDataReader["password"].ToString();
-                bool seller = (sqlDataReader["seller"].ToString() == "1");
-                bool buyer = (sqlDataReader["buyer"].ToString() == "1");
-                bool delivery = (sqlDataReader["delivery"].ToString() == "1");
-                conn.Close();
 
-                if (enteredPassword == userPassword)
+            //while (sqlDataReader.Read())
+            //    MessageBox.Show(sqlDataReader.ToString());
+            sqlDataReader.Read();
+
+            string enteredPassword = password.Text;
+            string userPassword = sqlDataReader["password"].ToString();
+            bool seller = (sqlDataReader["seller"].ToString() == "1"),
+                buyer = (sqlDataReader["buyer"].ToString() == "1"),
+                delivery = (sqlDataReader["delivery"].ToString() == "1");
+            conn.Close();
+
+            if (enteredPassword == userPassword)
+            {
+                if (seller)
                 {
-                    if (seller)
-                    {
-                        seller sellerForm = new seller(enteredUserID);
-                        this.Hide();
-                        sellerForm.Show();
-                    }
-                    else if (buyer)
-                    {
-                         all_Items allItemsForm = new all_Items(enteredUserID);
-                        this.Hide();
-                        allItemsForm.Show();
-                    }
-                    else if (delivery)
-                    {
-                        all_Items deliveryForm = new all_Items(enteredUserID);
-                        this.Hide();
-                        deliveryForm.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid user role!");
-                    }
+                    seller seller1 = new seller(enteredUserID);
+                    this.Hide();
+                    seller1.Show();
+                }
+                else if (true)
+                {
+                    all_Items all_Items1 = new all_Items(enteredUserID);
+                    this.Hide();
+                    all_Items1.Show();
+                }
+                else if (delivery)
+                {
+                    delivery delivery1 = new delivery(enteredUserID);
+                    this.Hide();
+                    delivery1.Show();
                 }
                 else
                 {
                     MessageBox.Show("Wrong ID or Password!");
                 }
+
+
             }
             else
             {
-                conn.Close();
-                MessageBox.Show("User not found!");
+                MessageBox.Show("Wrong ID or Password!");
             }
+            //SQLiteCommand command = new SQLiteCommand(sql, conn);
+            //SQLiteDataReader reader = command.ExecuteReader();
         }
+        //private void LoginButton_Click(object sender, EventArgs e)
+        //{
+        //    conn.Open();
+        //    int enteredUserID = int.Parse(userID.Text);
+        //    string sql = "SELECT * FROM [user] WHERE userID = " + enteredUserID;
+        //    SqlCommand cmd = new SqlCommand(sql, conn);
+        //    SqlDataReader sqlDataReader = cmd.ExecuteReader();
+
+        //    if (sqlDataReader.Read())
+        //    {
+        //        string enteredPassword = password.Text;
+        //        string userPassword = sqlDataReader["password"].ToString();
+        //        bool seller = (sqlDataReader["seller"].ToString() == "1");
+        //        bool buyer = (sqlDataReader["buyer"].ToString() == "1");
+        //        bool delivery = (sqlDataReader["delivery"].ToString() == "1");
+        //        conn.Close();
+
+        //        if (enteredPassword == userPassword)
+        //        {
+        //            if (seller)
+        //            {
+        //                seller sellerForm = new seller(enteredUserID);
+        //                this.Hide();
+        //                sellerForm.Show();
+        //            }
+        //            else if (buyer)
+        //            {
+        //                 all_Items allItemsForm = new all_Items(enteredUserID);
+        //                this.Hide();
+        //                allItemsForm.Show();
+        //            }
+        //            else if (delivery)
+        //            {
+        //                all_Items deliveryForm = new all_Items(enteredUserID);
+        //                this.Hide();
+        //                deliveryForm.Show();
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Invalid user role!");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Wrong ID or Password!");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        conn.Close();
+        //        MessageBox.Show("User not found!");
+        //    }
+        //}
         private void login_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbProject.mdf;Integrated Security=True;Connect Timeout=30");

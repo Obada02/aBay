@@ -25,10 +25,12 @@ namespace aBay
 
         private void seller_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dbProjectDataSet2.item' table. You can move, or remove it, as needed.
+            this.itemTableAdapter1.Fill(this.dbProjectDataSet2.item);
             // TODO: This line of code loads data into the 'dbProjectDataSet1.item' table. You can move, or remove it, as needed.
             this.itemTableAdapter.Fill(this.dbProjectDataSet1.item);
             // TODO: This line of code loads data into the 'dbProjectDataSet1.buy' table. You can move, or remove it, as needed.
-            this.buyTableAdapter.Fill(this.dbProjectDataSet1.buy);
+            
             conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbProject.mdf;Integrated Security=True;Connect Timeout=30");
 
         }
@@ -37,7 +39,7 @@ namespace aBay
         {
             itemBindingSource.Filter = $"item IN (SELECT * FROM item WHERE storeID = (select userID from store where storeID = {id}))";
             this.Validate();
-            this.buyBindingSource.EndEdit();
+            this.itemBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dbProjectDataSet1);
 
         }
@@ -47,7 +49,34 @@ namespace aBay
 
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        
+
+        private void StoreData_Click(object sender, EventArgs e)
+        {
+            StoreData sd1 = new StoreData(id);
+            this.Hide();
+            sd1.Show();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.itemBindingSource.EndEdit();
+            this.tableAdapterManager1.UpdateAll(this.dbProjectDataSet2);
+
+        }
+
+        private void itemBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxSearch_Click(object sender, EventArgs e)
         {
             string name = txtbxSearch.Text;
             if (name != string.Empty)
@@ -65,13 +94,6 @@ namespace aBay
             {
                 txtbxSearch.Text = "please enter anything here";
             }
-        }
-
-        private void StoreData_Click(object sender, EventArgs e)
-        {
-            StoreData sd1 = new StoreData(id);
-            this.Hide();
-            sd1.Show();
         }
     }
 }
