@@ -40,46 +40,49 @@ namespace aBay
 
             //while (sqlDataReader.Read())
             //    MessageBox.Show(sqlDataReader.ToString());
-            sqlDataReader.Read();
 
-            string enteredPassword = password.Text;
-            string userPassword = sqlDataReader["password"].ToString();
-            bool seller = (sqlDataReader["seller"].ToString() == "1"),
-                buyer = (sqlDataReader["buyer"].ToString() == "1"),
-                delivery = (sqlDataReader["delivery"].ToString() == "1");
-            conn.Close();
 
-            if (enteredPassword == userPassword)
+            // sqlDataReader.Read();
+            if (sqlDataReader.Read())
             {
-                if (seller)
+                string enteredPassword = password.Text;
+                string userPassword = sqlDataReader["password"].ToString();
+                bool seller = (sqlDataReader["seller"].ToString() == "1"),
+                    buyer = (sqlDataReader["buyer"].ToString() == "1"),
+                    delivery = (sqlDataReader["delivery"].ToString() == "1");
+                conn.Close();
+
+                if (enteredPassword == userPassword)
                 {
-                    seller seller1 = new seller(enteredUserID);
-                    this.Hide();
-                    seller1.Show();
+                    if (seller)
+                    {
+                        seller seller1 = new seller(enteredUserID);
+                        this.Hide();
+                        seller1.Show();
+                    }
+                    else if (buyer)
+                    {
+                        all_Items all_Items1 = new all_Items(enteredUserID);
+                        this.Hide();
+                        all_Items1.Show();
+                    }
+                    else if (delivery)
+                    {
+                        delivery delivery1 = new delivery(enteredUserID);
+                        this.Hide();
+                        delivery1.Show();
+                    }
+
                 }
-                else if (true)
-                {
-                    all_Items all_Items1 = new all_Items(enteredUserID);
-                    this.Hide();
-                    all_Items1.Show();
-                }
-                else if (delivery)
-                {
-                    delivery delivery1 = new delivery(enteredUserID);
-                    this.Hide();
-                    delivery1.Show();
-                }
-                else
+
+            } else
                 {
                     MessageBox.Show("Wrong ID or Password!");
                 }
 
 
-            }
-            else
-            {
-                MessageBox.Show("Wrong ID or Password!");
-            }
+            
+           
             //SQLiteCommand command = new SQLiteCommand(sql, conn);
             //SQLiteDataReader reader = command.ExecuteReader();
         }
